@@ -434,6 +434,7 @@ def main():
 #     write_intents_size()
 
 
+print("lolll")
 speak("Hello")
 print("Hello")
 main()
