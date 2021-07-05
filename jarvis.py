@@ -14,7 +14,7 @@ import csv
 
 from modules.files.arrays import *
 from modules.files.json_data import *
-from modules.spotify.spotify import *
+from modules.spotify.spotify_control import *
 from modules.tv_control.lg import *
 from modules.tv_control.connection import *
 from modules.tv_control.controls import *
@@ -23,6 +23,7 @@ from modules.tv_control.model import *
 from modules.emails.send_emails import *
 # from modules.tv_control.scanner import *
 from modules.tv_control.network import *
+from speak import *
 
 
 speaker = tts.init()
@@ -303,18 +304,18 @@ def send_email_res():
             with open(current_dir_path + modules_dir + '/emails/email_dict.csv', 'r') as f:
                 csv_reader = csv.reader(f, delimiter=',')
                 pass_count = 0
-            count = 0
-            for row in csv_reader:
-                if pass_count == 0:
-                    pass_count += 1
-                    continue
-                if row[0] == to:
-                    to = row[1]
-                    print("Me: " + to)
-                    break
-                elif count == len(csv_reader):
-                    speak("Person not found. Exiting")
-                    DONE = True
+                count = 0
+                for row in csv_reader:
+                    if pass_count == 0:
+                        pass_count += 1
+                        continue
+                    if row[0] == to:
+                        to = row[1]
+                        print("Me: " + to)
+                        break
+                    elif count == len(csv_reader):
+                        speak("Person not found. Exiting")
+                        DONE = True
         except:
             speak('Could not catch that, repeat')
             print("Alexa: " + "Could not catch that, repeat")
