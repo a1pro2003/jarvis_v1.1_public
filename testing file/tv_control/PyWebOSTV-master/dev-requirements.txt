@@ -1,0 +1,5 @@
+pytest
+pylint
+coveralls
+twine
+wheel

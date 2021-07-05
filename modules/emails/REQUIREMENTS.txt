@@ -1,0 +1,8 @@
+pip install smtplib
+pip install email
+
+go to https://myaccount.google.com/ > security
+set up 2 factor authentication
+go back adn create an 'App password'
+
+Replace with password in script

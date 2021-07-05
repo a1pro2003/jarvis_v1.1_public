@@ -1,0 +1,49 @@
+{"intents":
+[
+    {
+        "tag" : "greeting",
+        "patterns" : ["hi", "hello", "hey", "how is it going", "how's it going"],
+        "responses" : ["Hello Sir!", "Hello, What can i do for you sir?"]    
+    },
+    {
+        "tag" : "create_note",
+        "patterns" : ["new note", "create new note", "make a note"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "add_todo",
+        "patterns" : ["add to-do", "new to-do", "to-do list"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "show_todo",
+        "patterns" : ["show to-do list", "show to-do", "can you show me my to-do list"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "thank_you",
+        "patterns" : ["thank you", "thanks", "thank you very much"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "remove_todo",
+        "patterns" : ["remove a task", "remove task", "delete a task", "delete something from my to-do list"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "joke",
+        "patterns" : ["tell me a joke", "say a joke", "give me a joke"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "bye",
+        "patterns" : ["bye", "goodbye"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "send_email",
+        "patterns" : ["send an email", "send email", "send a email"],
+        "responses" : [""]    
+    }
+]
+}
