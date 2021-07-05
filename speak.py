@@ -10,3 +10,4 @@ recognizer = sr.Recognizer()
 def speak(audio): #DONE
     speaker.say(audio)
     speaker.runAndWait()
+    return
