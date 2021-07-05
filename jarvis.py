@@ -2,6 +2,7 @@ from email import message
 import sys
 from urllib import request
 from warnings import resetwarnings
+from scapy.volatile import RandSingByte
 import speech_recognition as sr
 import pyttsx3 as tts
 import random
@@ -115,7 +116,7 @@ def cleanup():
     #KIlls spotify if running
     speak(goodbye_responses[random.randint(0, len(goodbye_responses) - 1)])
     close_spotify()
-    tv_controls('notification power off')
+    #tv_controls('notification power off')
     sys.exit()
 
 ###############################################################

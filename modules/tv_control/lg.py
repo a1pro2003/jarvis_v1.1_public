@@ -110,9 +110,14 @@ def setup():
         #Attempts to connect to tv
         try:
             for ip in ip_list:
-                try:   
-                    client = WebOSClient(ip['ip']) #Target ip
-                    client.connect()
+                try:
+                    try:
+                        client = WebOSClient(ip['ip']) #Target ip
+                        client.connect()
+                    except:
+                        print('pass')
+                        count += 1                        
+                        pass
                     try:
                         for status in client.register(store):
                             if status == WebOSClient.PROMPTED:
@@ -129,9 +134,7 @@ def setup():
                     except:
                         pass
                 except:
-                    print('pass')
-                    count += 1
-                    continue
+                    pass
             if count == len(ip_list):
                 print('No TV recognised')
                 speak('No TV recognised')
@@ -181,8 +184,13 @@ def setup():
                 #Attempts to connect to tv
                 for ip in ip_list:
                     try:
-                        client = WebOSClient(ip['ip']) #Target ip
-                        client.connect()
+                        try:
+                            client = WebOSClient(ip['ip']) #Target ip
+                            client.connect()
+                        except:
+                            print('pass')
+                            count += 1
+                            pass
                         try:
                             for status in client.register(store):
                                 if status == WebOSClient.PROMPTED:
@@ -200,9 +208,7 @@ def setup():
                             pass
                             
                     except:
-                        print('pass')
-                        count += 1
-                        continue
+                        pass
                 if count == len(ip_list):
                     print('No TV recognised, or Tv Off')
                     speak('No TV recognised')
