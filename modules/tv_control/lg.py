@@ -8,7 +8,7 @@ from modules.tv_control.discovery import *    # Because I'm lazy, don't do this.
 from modules.tv_control.connection import *
 from modules.tv_control.controls import *
 from modules.tv_control.scanner import *
-from jarvis import speak
+import jarvis
 
 #testing
 # import network
@@ -91,7 +91,7 @@ def setup():
     if check_ip_file_empty() == True:
         print('No IP saved')
         print('Scanning network')
-        speak("Scanning Network")
+        jarvis.speak("Scanning Network")
         for i in range(2):
             try:
                 print(i)
@@ -124,17 +124,18 @@ def setup():
                             f.write(ip['ip'] + ',' + ip['mac'])
                             print('Ip saved')
                             print('Successfull Connection')
-                            speak("TV found. Successfull connection")
+                            jarvis.speak("TV found. Successfull connection")
                             break
                     except:
                         pass
                 except:
                     print('pass')
+                    jarvis.speak("Pass")
                     count += 1
                     continue
             if count == len(ip_list):
                 print('No TV recognised')
-                speak('No TV recognised')
+                jarvis.speak('No TV recognised')
                 sys.exit()
         except:
             #sys.exit()
@@ -148,6 +149,7 @@ def setup():
         print('ip: ' + ip + ' mac :' + mac)
 
         print('Checking saved IP')
+        jarvis.speak("Checking saved IP")
         print('Attempting to power on saved IP device')
         send_magic_packet(mac, ip_address = ip)
         sleep(3)
@@ -160,11 +162,12 @@ def setup():
                     print("Please accept the connect on the TV!")
                 elif status == WebOSClient.REGISTERED:
                     print("Saved IP successful!")
+                    jarvis.speak("TV found. Successfull connection")
                     break
         except:
                 print('Saved IP failed')
                 print('Scanning network')
-                speak("Scanning network")
+                jarvis.speak("Scanning network")
                 for i in range(2):
                     try:
                         print(i)
@@ -192,18 +195,19 @@ def setup():
                                 f.write(ip['ip'] + ',' + ip['mac'])
                                 print('Ip saved')
                                 print('Successfull Connection')
-                                speak("TV found. Successfull connection")
+                                jarvis.speak("TV found. Successfull connection")
                                 break
                         except:
                             pass
                             
                     except:
                         print('pass')
+                        jarvis.speak("Pass")
                         count += 1
                         continue
                 if count == len(ip_list):
                     print('No TV recognised, or Tv Off')
-                    speak('No TV recognised')
+                    jarvis.speak('No TV recognised')
                     #sys.exit()
 
     try:

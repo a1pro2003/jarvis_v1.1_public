@@ -13,7 +13,7 @@ from time import sleep
 import subprocess
 from psutil import process_iter
 from sys import exit
-from jarvis import speak
+import jarvis
 
 """
 To run this script, you must have a file in this directory called 'setup.txt'
