@@ -131,6 +131,7 @@ def setup():
                 except:
                     print('pass')
                     speak("Pass")
+                    sleep(0.2)
                     count += 1
                     continue
             if count == len(ip_list):
@@ -203,6 +204,7 @@ def setup():
                     except:
                         print('pass')
                         speak("Pass")
+                        sleep(0.2)
                         count += 1
                         continue
                 if count == len(ip_list):
