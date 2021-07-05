@@ -371,23 +371,6 @@ def main():
                 input_list = input.split()
                 print(input_list)
 
-                # if input in greeting_req or input in (string for string in greeting_req):
-                #     greeting_res()
-                # elif input in create_note_req or input in (string for string in create_note_req):
-                #     create_note_res()
-                # elif input in add_todo_req or input in (string for string in add_todo_req):
-                #     add_todo_res()
-                # elif input in show_todo_req or input in (string for string in show_todo_req):
-                #     show_todo_res()
-                # elif input in remove_todo_req or input in (string for string in remove_todo_req):
-                #     remove_todo_res()
-                # elif input in joke_req or input in (string for string in joke_req):
-                #     joke_res()
-                # elif input in bye_req or input in (string for string in bye_req):
-                #     cleanup()
-                # elif input in send_email_req or input in (string for string in send_email_req):
-                #     send_email_res()
-                    
 
 
                 if len(input_list) <= 0:

@@ -96,11 +96,14 @@ def close_spotify(): #DONE
 
 #Starts spotify
 def start_spotify(): #DONE
-    info = subprocess.STARTUPINFO()
-    info.dwFlags = 1
-    info.wShowWindow = 0
-    if check_running_program() == False:
-        spotify_proc = subprocess.Popen(home + '/AppData/Roaming/Spotify/Spotify.exe', startupinfo=info)
+    try:
+        info = subprocess.STARTUPINFO()
+        info.dwFlags = 1
+        info.wShowWindow = 0
+        if check_running_program() == False:
+            spotify_proc = subprocess.Popen(home + '/AppData/Roaming/Spotify/Spotify.exe', startupinfo=info)
+    except:
+        pass
     return
 
 #checks if there are any devices available

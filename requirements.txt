@@ -4,6 +4,7 @@ sudo apt-get install libffi-dev
 pip3 install speechrecognition;pip3 install pyttsx3;pip3 install neuralintents;$
 pip3 install scipy;pip3 install scapy;pip3 install ws4py;pip3 install pywebostv$
 
+sudo apt-get update && sudo apt-get install spotify-client
 
 
 sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev$

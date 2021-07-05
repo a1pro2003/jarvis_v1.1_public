@@ -13,12 +13,12 @@ from os.path import expanduser
 current_dir_path = str(os.path.dirname(os.path.realpath(__file__)))
 user_dir_path = str(Path.home())
 home = expanduser("~")
-modules_files = '\\modules\\files'
+modules_files = '/modules/files'
 
 
 def task_list(): #DONE
     #opens json file, stores data and returns the list
-    with open(current_dir_path + "\\todo_list.json", "r") as f:
+    with open(current_dir_path + "/todo_list.json", "r") as f:
         data = json.load(f)
     
     task_list = data["to-do"][0]
@@ -27,11 +27,11 @@ def task_list(): #DONE
 
 def task_add(new_task): #DONE
     #opens, reads and stores data
-    with open(current_dir_path + "\\todo_list.json", "r") as f:
+    with open(current_dir_path + "/todo_list.json", "r") as f:
         data = json.load(f)
 
     #counts number of tasks to keep track and adds a new task to the end
-    with open(current_dir_path + "\\todo_list.json", "w") as f:
+    with open(current_dir_path + "/todo_list.json", "w") as f:
         #counts amount of tasks
         count = 0
         for tsk in data["to-do"][0]:
@@ -45,12 +45,12 @@ def task_add(new_task): #DONE
 
 def task_delete(task): #DONE
     #opens, reads and stores data
-    with open(current_dir_path + "\\todo_list.json", "r") as f:
+    with open(current_dir_path + "/todo_list.json", "r") as f:
         data = json.load(f)
 
     old_data = data
 
-    with open(current_dir_path + "\\todo_list.json", "w") as f:
+    with open(current_dir_path + "/todo_list.json", "w") as f:
         try:
             #checks that the input does not contain a 'no' and that the item requested is in the list
             if task != "no" and ("task" + str(task)) in data["to-do"][0]:
@@ -120,17 +120,17 @@ def write_intents_size():
         for row in reader:
 
             if row['key'] == 'intents_size':
-                row['data'] = int(Path(current_dir_path + '\\intents.json').stat().st_size)
+                row['data'] = int(Path(current_dir_path + '/intents.json').stat().st_size)
                 row = {'key' : row["key"], 'data' : row['data']}
             writer.writerow(row)
     shutil.move(tempfile.name, current_dir_path + "/data.csv")
     return True
 
 def intents_size():
-    return int(Path(current_dir_path +'\\intents.json').stat().st_size)
+    return int(Path(current_dir_path +'/intents.json').stat().st_size)
 
 def test():
-    return (current_dir_path + "\\todo_list.json")
+    return (current_dir_path + "/todo_list.json")
 
 #print(test())
     
