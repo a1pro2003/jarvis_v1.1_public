@@ -300,17 +300,21 @@ def send_email_res():
             speak('Who do you want to send the email to')
             print("Alexa: " + "Who do you want to send the email to")
             to = listen()
-            print("Me: " + to)
             with open(current_dir_path + modules_dir + '/emails/email_dict.csv', 'r') as f:
                 csv_reader = csv.reader(f, delimiter=',')
                 pass_count = 0
-                for row in csv_reader:
-                    if pass_count == 0:
-                        pass_count += 1
-                        continue
-                    if row[0] == to:
-                        to = row[1]
-                        break
+            count = 0
+            for row in csv_reader:
+                if pass_count == 0:
+                    pass_count += 1
+                    continue
+                if row[0] == to:
+                    to = row[1]
+                    print("Me: " + to)
+                    break
+                elif count == len(csv_reader):
+                    speak("Person not found. Exiting")
+                    DONE = True
         except:
             speak('Could not catch that, repeat')
             print("Alexa: " + "Could not catch that, repeat")
@@ -391,7 +395,7 @@ def main():
                 input = input.replace('alexa', '')
                 print("Me:" + input)
                 input_list = input.split()
-                print(input_list)
+                #print(input_list)
 
 
 
