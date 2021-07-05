@@ -1,0 +1,14 @@
+
+git push 'remote_name' 'branch_name'
+
+git init
+
+#adds everything
+git add .  
+
+git status
+
+git commit -m 'your message'
+
+git push -u origin master
+

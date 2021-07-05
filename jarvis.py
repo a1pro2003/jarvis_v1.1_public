@@ -33,8 +33,8 @@ recognizer = sr.Recognizer()
 current_dir_path = str(os.path.dirname(os.path.realpath(__file__)))
 user_dir_path = str(Path.home())
 home = expanduser("~")
-modules_dir = '\\modules'
-modules_files_dir = '\\modules\\files'
+modules_dir = '/modules'
+modules_files_dir = '/modules/files'
 
 
 
@@ -280,7 +280,7 @@ def send_email_res():
             speak('Who do you want to send the email to')
             to = listen()
             print(to)
-            with open(current_dir_path + modules_dir + '\\emails\\email_dict.csv', 'r') as f:
+            with open(current_dir_path + modules_dir + '/emails/email_dict.csv', 'r') as f:
                 csv_reader = csv.reader(f, delimiter=',')
                 pass_count = 0
                 for row in csv_reader:
@@ -371,22 +371,22 @@ def main():
                 input_list = input.split()
                 print(input_list)
 
-                if input in greeting_req or input in (string for string in greeting_req):
-                    greeting_res()
-                elif input in create_note_req or input in (string for string in create_note_req):
-                    create_note_res()
-                elif input in add_todo_req or input in (string for string in add_todo_req):
-                    add_todo_res()
-                elif input in show_todo_req or input in (string for string in show_todo_req):
-                    show_todo_res()
-                elif input in remove_todo_req or input in (string for string in remove_todo_req):
-                    remove_todo_res()
-                elif input in joke_req or input in (string for string in joke_req):
-                    joke_res()
-                elif input in bye_req or input in (string for string in bye_req):
-                    cleanup()
-                elif input in send_email_req or input in (string for string in send_email_req):
-                    send_email_res()
+                # if input in greeting_req or input in (string for string in greeting_req):
+                #     greeting_res()
+                # elif input in create_note_req or input in (string for string in create_note_req):
+                #     create_note_res()
+                # elif input in add_todo_req or input in (string for string in add_todo_req):
+                #     add_todo_res()
+                # elif input in show_todo_req or input in (string for string in show_todo_req):
+                #     show_todo_res()
+                # elif input in remove_todo_req or input in (string for string in remove_todo_req):
+                #     remove_todo_res()
+                # elif input in joke_req or input in (string for string in joke_req):
+                #     joke_res()
+                # elif input in bye_req or input in (string for string in bye_req):
+                #     cleanup()
+                # elif input in send_email_req or input in (string for string in send_email_req):
+                #     send_email_res()
                     
 
 
@@ -409,20 +409,20 @@ def main():
             pass
 
 
-# mappings = {
-#     "greeting": greeting,
-#     "create_note": create_note,
-#     "add_todo": add_todo,
-#     "show_todo": show_todo,
-#     "remove_todo": remove_todo,
-#     "cancel": cancel,
-#     "thank_you": thank_you,
-#     "joke": joke,
-#     "bye": cleanup,
-#     "send_email": send_email,
-# }
-# print(current_dir_path + modules_files_dir + '\\intents.json')
-# assistant = GenericAssistant(current_dir_path + modules_files_dir + '\\intents.json', intent_methods=mappings)
+mappings = {
+    "greeting": greeting_res,
+    "create_note": create_note_res,
+    "add_todo": add_todo_res,
+    "show_todo": show_todo_res,
+    "remove_todo": remove_todo_res,
+    "cancel": cancel_res,
+    "thank_you": thank_you_res,
+    "joke": joke_res,
+    "bye": cleanup,
+    "send_email": send_email_res,
+}
+# print(current_dir_path + modules_files_dir + '/intents.json')
+assistant = GenericAssistant(current_dir_path + modules_files_dir + '/intents.json', intent_methods=mappings)
 
 # #Checks to see if 'intents.json' has changed to determine wether to re-train the AI
 # #DONE
@@ -433,8 +433,9 @@ def main():
 #     assistant.save_model()
 #     write_intents_size()
 
+assistant.train_model()
 
-print("lolll")
+
 speak("Hello")
 print("Hello")
 main()
