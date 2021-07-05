@@ -1,7 +1,7 @@
 client_id=2b83165d19de470fb185e1b6a889b566
 client_secret=8282cf3ddc7646249d368ef9d3023ab5
 device_name=ADRIAN-PC
-redirect_uri=http://localhost
+redirect_uri=http://localhost:8080
 username=31puzez6stzmijvy74jfpet3rfq4
 scope=user-read-private user-read-playback-state user-modify-playback-state
 

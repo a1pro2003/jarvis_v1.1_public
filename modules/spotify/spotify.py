@@ -100,7 +100,7 @@ def start_spotify(): #DONE
     info.dwFlags = 1
     info.wShowWindow = 0
     if check_running_program() == False:
-        spotify_proc = subprocess.Popen(home + '\\AppData\\Roaming\\Spotify\\Spotify.exe', startupinfo=info)
+        spotify_proc = subprocess.Popen(home + '/AppData/Roaming/Spotify/Spotify.exe', startupinfo=info)
     return
 
 #checks if there are any devices available

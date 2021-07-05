@@ -27,13 +27,13 @@ from wakeonlan import send_magic_packet
 current_dir_path = str(os.path.dirname(os.path.realpath(__file__)))
 user_dir_path = str(Path.home())
 home = os.path.expanduser("~")
-modules_tv_control_dir = '\\modules\\tv_control'
+modules_tv_control_dir = '/modules/tv_control'
 current_dir_path = str(os.path.dirname(os.path.realpath(__file__)))
 
 
 #checks if file is empty
 def store_store():
-    with open(current_dir_path +  "\\config.json", 'r') as read_obj:
+    with open(current_dir_path +  "/config.json", 'r') as read_obj:
         # read first character
         one_char = read_obj.read(1)
         # if not fetched then file is empty
@@ -41,19 +41,19 @@ def store_store():
            return True
 #save client key
 def write_store(store):
-    with open(current_dir_path +  "\\config.json", 'w') as write_obj:
+    with open(current_dir_path +  "/config.json", 'w') as write_obj:
         write_obj.write(json.dumps(store))
         #data = json.dump(write_obj, write_obj)
 #Load client key    
 def load_store():
-    with open(current_dir_path +  "\\config.json", 'r') as read_obj:
+    with open(current_dir_path +  "/config.json", 'r') as read_obj:
         data = json.loads(read_obj.read())
         return data
 
 def check_ip_file_empty():
-    with open(current_dir_path +  "\\ip.txt", 'r') as read_obj:
+    with open(current_dir_path +  "/ip.txt", 'r') as read_obj:
         # read first character
-        size = os.stat(current_dir_path +  '\\ip.txt').st_size
+        size = os.stat(current_dir_path +  '/ip.txt').st_size
         # if not fetched then file is empty
         if size == 0:
             return True
@@ -61,18 +61,18 @@ def check_ip_file_empty():
             return False
 
 def check_host():
-    with open(current_dir_path +  '\\ip.txt', 'r') as f:
+    with open(current_dir_path +  '/ip.txt', 'r') as f:
         ip = f.read()
     socket.gethostname
 
 def get_stored_ip():
     
-    with open(current_dir_path +  '\\ip.txt', 'r') as f:
+    with open(current_dir_path +  '/ip.txt', 'r') as f:
         ip_mac = f.read()
         return ip_mac[:-18]
 
 def get_stored_mac():
-    with open(current_dir_path +  '\\ip.txt', 'r') as f:
+    with open(current_dir_path +  '/ip.txt', 'r') as f:
         ip_mac = f.read()
         return ip_mac[-17:]
 
@@ -118,7 +118,7 @@ def setup():
                             elif status == WebOSClient.REGISTERED:
                                 print("Registration successful!")
                                 break
-                        with open(current_dir_path +  '\\ip.txt', 'w') as f:
+                        with open(current_dir_path +  '/ip.txt', 'w') as f:
                             f.write(ip['ip'] + ',' + ip['mac'])
                             print('Ip saved')
                             print('Successfull Connection')
@@ -183,7 +183,7 @@ def setup():
                                 elif status == WebOSClient.REGISTERED:
                                     print("Registration successful!")
                                     break
-                            with open(current_dir_path +  '\\ip.txt', 'w') as f:
+                            with open(current_dir_path +  '/ip.txt', 'w') as f:
                                 f.write(ip['ip'] + ',' + ip['mac'])
                                 print('Ip saved')
                                 print('Successfull Connection')
@@ -267,7 +267,7 @@ def tv_controls(control):
                 system.power_off(callback=response)
                 pass
             elif ' '.join(control[1:3]) == 'power on':
-                with open(current_dir_path +  '\\ip.txt', 'r') as f:
+                with open(current_dir_path +  '/ip.txt', 'r') as f:
                     ip_mac = f.read()
                     ip = ip_mac[:-18]
                     mac = ip_mac[-17:]
