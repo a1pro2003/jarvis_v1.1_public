@@ -8,6 +8,9 @@ speaker.setProperty('voice', en_voice_id) # sets voice
 recognizer = sr.Recognizer()
 
 def speak(audio): #DONE
-    speaker.say(audio)
-    speaker.runAndWait()
+    try:
+        speaker.say(audio)
+        speaker.runAndWait()
+    except:
+        pass
     return
