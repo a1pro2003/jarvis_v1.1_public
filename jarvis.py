@@ -1,6 +1,7 @@
 from email import message
 import sys
 from urllib import request
+from warnings import resetwarnings
 import speech_recognition as sr
 import pyttsx3 as tts
 import random
@@ -127,13 +128,14 @@ def cleanup():
 
 def greeting_res(): #DONE
     message = greeting_responses[random.randint(0, len(greeting_responses)-1)]
-    print(message)
+    print("Alexa: " + message)
     speak(message)
 
 def create_note_res():
     #create notes in a folder and file
     global recognizer
     speaker.say("What do you want to add to your note?")
+    print("Alexa: " + "What do you want to add to your note?")
     speaker.runAndWait()
 
     done = False
@@ -148,6 +150,7 @@ def create_note_res():
                 note = note.lower()
 
                 speaker.say("choose a file name")
+                print("Alexa: choose a filename")
                 speaker.runAndWait()
 
                 recognizer.adjust_for_ambient_noise(mic, duration=0.2)
@@ -155,32 +158,38 @@ def create_note_res():
 
                 filename = recognizer.recognize_google(audio)
                 filename = filename.lower()
+                print("Me: " + str(filename))
 
             with open(f"{filename}.txt", 'w') as f:
                 f.write(note)
                 done = True
-                speaker.say(f"Successfully made {filename}")
+                speaker.say("Successfully made {}".format(filename))
+                print("Alexa: " + "Successfully made {}".format(filename))
                 speaker.runAndWait()
 
         except sr.UnknownValueError:
             recognizer = sr.Recognizer()
             speaker.say("I did not understand")
+            print("Alexa: I did not understant")
             speaker.runAndWait()
 
 def show_todo_res(): #Done
     #Make todo list in a folder and file to be able to access it even after shutdown
     global todo_list
     speaker.say("Showing to do list ")
+    print("Alexa: Showing to-do list")
 
     #iterates throu to-do list and prints the tasks
     for task_num, task_val in task_list().items():
         print(task_num + ": " + task_val)
         speaker.say(task_num + ": " + task_val)
 
+
     speaker.runAndWait()
 
 def add_todo_res(): #Done
-    speaker.say("What do u wanna add")
+    speaker.say("What do u want to add")
+    print("Alexa: What do you want to add")
     speaker.runAndWait()
 
     done = False
@@ -200,17 +209,20 @@ def add_todo_res(): #Done
 
             done = True
 
-            speaker.say(f"Item {item} added")
+            speaker.say("Item {} added".format(item))
+            print("Alexa: " +  "Item {} added".format(item))
             speaker.runAndWait()
 
                 
         except:
             recognizer = sr.Recognizer()
             speaker.say("I did not understand")
+            print("Alexa: I did not understant")
             speaker.runAndWait()
 
 def remove_todo_res(): #Done
     speaker.say("What task do you want to remove")
+    print("Alexa: " + "What task do you want to remove")
     speaker.runAndWait()
 
     done = False
@@ -247,23 +259,31 @@ def remove_todo_res(): #Done
             
             done = True
 
-            speaker.say(f"Item {item} removed")
+            speaker.say("Item {} removed".format(item))
+            print("Alexa: " + "Item {} removed".format(item))
             speaker.runAndWait()
 
                 
         except:
             recognizer = sr.Recognizer()
             speaker.say("I did not understand")
+            print("Alexa: I did not understant")
             speaker.runAndWait()
 
 def thank_you_res(): #DONE
-    return speak(thank_you_responses[random.randint(0,len(thank_you_responses) - 1)])
+    response = thank_you_responses[random.randint(0,len(thank_you_responses) - 1)]
+    print("Alexa: " + response)
+    return speak(response)
 
 def cancel_res(): #DONE
-    return speak(cancel_responses[random.randint(0,len(cancel_responses)-1)])
+    response = cancel_responses[random.randint(0,len(cancel_responses)-1)]
+    print("Alexa: " + response)
+    return speak(response)
 
 def joke_res(): #DONE
-    speak(pyjokes.get_joke())
+    joke = pyjokes.get_joke()
+    speak(joke)
+    print("Alexa: " + joke)
 
 def music_request_res(request):
     #Check if spotify is running, if not, exedcute it
@@ -278,8 +298,9 @@ def send_email_res():
     while not DONE:
         try:
             speak('Who do you want to send the email to')
+            print("Alexa: " + "Who do you want to send the email to")
             to = listen()
-            print(to)
+            print("Me: " + to)
             with open(current_dir_path + modules_dir + '/emails/email_dict.csv', 'r') as f:
                 csv_reader = csv.reader(f, delimiter=',')
                 pass_count = 0
@@ -292,26 +313,35 @@ def send_email_res():
                         break
         except:
             speak('Could not catch that, repeat')
+            print("Alexa: " + "Could not catch that, repeat")
             continue
 
         try:
             speak('Subject of email')
+            print("Alexa: " + "Subject of email")
             subject = listen()
+            print("Me: " + subject)
         except:
             speak('Could not catch that, repeat')
+            print("Alexa: " + "Could not catch that, repeat")
             continue
 
         try:
             speak('Meesage')
+            print("Alexa: " + "Message")
             body = listen()
+            print("Me: " + body)
         except:
             speak('Could not catch that, repeat')
+            print("Alexa: " + "Could not catch that, repeat")
             continue
         result = email_msg(subject=subject, body=body, to=to)
         if result == True:
             speak('Message sent successfully')
+            print("Alexa: " + "Message sent successfully")
         elif result == False:
             speak('Message not delivered')
+            print("Alexa: " + "Message not delivered")
         DONE = True
 
     
@@ -328,14 +358,6 @@ def send_email_res():
 #
 ###############################################################
 
-greeting_req = ["hi", "hello", "hey", "how is it going", "how's it going", "good morning", "good afternoon", "how are you"]
-create_note_req = ["new note", "create new note", "make a note", "create a note", "create a new note", "make a new note"]
-add_todo_req = ["add to-do", "new to-do", "to-do list", "add to my to-do list", "add a new task to my to-do list", "add a new task"]
-show_todo_req = ["show to-do list", "show to-do", "can you show me my to-do list", "show me my to-do list", "what's on my to-do list"]
-remove_todo_req = ["remove a task", "remove task", "delete a task", "delete something from my to-do list", "delete a task", "delete a task from my to-do list"]
-joke_req = ["tell me a joke", "say a joke", "give me a joke"]
-bye_req = ["bye", "goodbye"]
-send_email_req = ["send an email", "send email", "send a email"]
 
 
 
@@ -353,12 +375,12 @@ def main():
             input.lower()
             #checks to see if music
             if (input.count(MUSIC) > 0):
-                print(input)
+                print("Me: " + input)
                 music_request_res(input.replace('music', ''))
                 continue
 
             elif (input.count(TV) > 0):
-                print(input)
+                print("Me: " + input)
                 tv_request_res(input.replace('tv', ''))
                 continue
 
@@ -376,13 +398,9 @@ def main():
                 if len(input_list) <= 0:
                     continue 
 
-                #checks to see if music request is in input 
-                # elif input_list in music_commands:
-                #     music_request(input)
-                #     continue          
 
                 else:
-                    # assistant.request(input)
+                    assistant.request(input)
                     pass
                 continue
             

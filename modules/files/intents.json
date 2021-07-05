@@ -2,22 +2,22 @@
 [
     {
         "tag" : "greeting",
-        "patterns" : ["hi", "hello", "hey", "how is it going", "how's it going"],
+        "patterns" : ["hi", "hello", "hey", "how is it going", "how's it going", "good morning", "good afternoon", "how are you"],
         "responses" : ["Hello Sir!", "Hello, What can i do for you sir?"]    
     },
     {
         "tag" : "create_note",
-        "patterns" : ["new note", "create new note", "make a note"],
+        "patterns" : ["new note", "create new note", "make a note", "create a note", "create a new note", "make a new note"],
         "responses" : [""]    
     },
     {
         "tag" : "add_todo",
-        "patterns" : ["add to-do", "new to-do", "to-do list"],
+        "patterns" : ["add to-do", "new to-do", "to-do list", "add to my to-do list", "add a new task to my to-do list", "add a new task"],
         "responses" : [""]    
     },
     {
         "tag" : "show_todo",
-        "patterns" : ["show to-do list", "show to-do", "can you show me my to-do list"],
+        "patterns" : ["show to-do list", "show to-do", "can you show me my to-do list", "show me my to-do list", "what's on my to-do list"],
         "responses" : [""]    
     },
     {
@@ -27,7 +27,7 @@
     },
     {
         "tag" : "remove_todo",
-        "patterns" : ["remove a task", "remove task", "delete a task", "delete something from my to-do list"],
+        "patterns" : ["remove a task", "remove task", "delete a task", "delete something from my to-do list", "delete a task", "delete a task from my to-do list"],
         "responses" : [""]    
     },
     {
@@ -37,7 +37,7 @@
     },
     {
         "tag" : "bye",
-        "patterns" : ["bye", "goodbye"],
+        "patterns" : ["bye", "goodbye", "power off"],
         "responses" : [""]    
     },
     {

@@ -13,6 +13,7 @@ from time import sleep
 import subprocess
 from psutil import process_iter
 from sys import exit
+from jarvis import speak
 
 """
 To run this script, you must have a file in this directory called 'setup.txt'
@@ -371,14 +372,15 @@ def spotify_request(command):
                 #transfer to TV
                 if words[2] == 'tv':
                     spotify.transfer_playback(device_id='7a7ef9e5-46b8-44ca-9309-8e1cfce81fb6')
-                
+                    speak("Transfered to TV")
                 #trasnfer to computer
                 elif words[2] == 'computer':
                     spotify.transfer_playback(device_id='b806a37ebf5690d31761b7e3a3c3f5ad51c9c03c', force_play=True)
-
+                    speak("Transfered to PC")
                 #trasnfer to phone
                 elif words[2] == 'phone':
                     spotify.transfer_playback(device_id='b09ac66874e998e1c092a10350e3b54eab0f788b', force_play=True)
+                    speak("Transfered to Phone")
             except:
                 pass
 

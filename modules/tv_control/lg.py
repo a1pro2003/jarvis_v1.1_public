@@ -8,6 +8,7 @@ from modules.tv_control.discovery import *    # Because I'm lazy, don't do this.
 from modules.tv_control.connection import *
 from modules.tv_control.controls import *
 from modules.tv_control.scanner import *
+from jarvis import speak
 
 #testing
 # import network
@@ -90,6 +91,7 @@ def setup():
     if check_ip_file_empty() == True:
         print('No IP saved')
         print('Scanning network')
+        speak("Scanning Network")
         for i in range(2):
             try:
                 print(i)
@@ -122,6 +124,7 @@ def setup():
                             f.write(ip['ip'] + ',' + ip['mac'])
                             print('Ip saved')
                             print('Successfull Connection')
+                            speak("TV found. Successfull connection")
                             break
                     except:
                         pass
@@ -131,6 +134,7 @@ def setup():
                     continue
             if count == len(ip_list):
                 print('No TV recognised')
+                speak('No TV recognised')
                 sys.exit()
         except:
             #sys.exit()
@@ -160,6 +164,7 @@ def setup():
         except:
                 print('Saved IP failed')
                 print('Scanning network')
+                speak("Scanning network")
                 for i in range(2):
                     try:
                         print(i)
@@ -187,6 +192,7 @@ def setup():
                                 f.write(ip['ip'] + ',' + ip['mac'])
                                 print('Ip saved')
                                 print('Successfull Connection')
+                                speak("TV found. Successfull connection")
                                 break
                         except:
                             pass
@@ -197,6 +203,7 @@ def setup():
                         continue
                 if count == len(ip_list):
                     print('No TV recognised, or Tv Off')
+                    speak('No TV recognised')
                     #sys.exit()
 
     try:
