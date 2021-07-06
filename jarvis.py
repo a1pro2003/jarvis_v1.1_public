@@ -375,8 +375,6 @@ def main():
         try:
             with sr.Microphone() as mic:
                 input = listen()
-
-            input.lower()
             #checks to see if music
             if (input.count(MUSIC) > 0):
                 print("Me: " + input)
