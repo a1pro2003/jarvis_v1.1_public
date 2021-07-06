@@ -44,6 +44,16 @@
         "tag" : "send_email",
         "patterns" : ["send an email", "send email", "send a email"],
         "responses" : [""]    
+    },
+    {
+        "tag" : "open_mask",
+        "patterns" : ["open the mask", "open mask", "open the helmet"],
+        "responses" : [""]    
+    },
+    {
+        "tag" : "close_mask",
+        "patterns" : ["close the mask", "close mask", "close the helmet"],
+        "responses" : [""]    
     }
 ]
 }

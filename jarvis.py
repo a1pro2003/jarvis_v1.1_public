@@ -13,6 +13,7 @@ import time
 import csv
 
 
+from servo import *
 from modules.files.arrays import *
 from modules.files.json_data import *
 from modules.spotify.spotify_control import *
@@ -350,7 +351,6 @@ def send_email_res():
             print("Alexa: " + "Message not delivered")
         DONE = True
 
-    
 
 #Music Playing Function
 
@@ -427,6 +427,8 @@ mappings = {
     "joke": joke_res,
     "bye": cleanup,
     "send_email": send_email_res,
+    "open_mask": open_mask,
+    "close_mask": close_mask,
 }
 # print(current_dir_path + modules_files_dir + '/intents.json')
 assistant = GenericAssistant(current_dir_path + modules_files_dir + '/intents.json', intent_methods=mappings)

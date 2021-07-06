@@ -3,7 +3,15 @@
 #Install this before running 'requirements.txt'
 
 1. sudo apt-get install libffi-dev
-2. sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev$
+2. sudo apt-get install -y build-essential tk-dev libncurses5-dev libncursesw5-dev libreadline6-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev
+3. python3 -m pip install --upgrade pip
+
+
+
+#Install tenserflow/neuralintents
+1.sudo rm /usr/lib/python3/dist-packages/wrapt-1.10.11.egg-info
+2.pip3 install --upgrade tensorflow==1.14 --no-cache-dir
+3.
 
 
 #TV Wake-On-Lan
