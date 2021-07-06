@@ -64,7 +64,7 @@ def get_audio(): #DONE
     except sr.UnknownValueError:
         recognizer = sr.Recognizer()
 
-def listen(): #DONE
+def listen_1(): #DONE
     global audio
     DONE = False
     audio = ''
@@ -92,15 +92,11 @@ def listen(): #DONE
         except sr.UnknownValueError:
             pass
     
-def listen_1():
+def listen():
     try:
         with sr.Microphone() as mic:
             r = sr.Recognizer()
-            r.adjust_for_ambient_noise(mic, duration=1)
-            r.dynamic_energy_threshold = True
-            r.energy_threshold = 3600 # between 4400 to 4600
-            r.pause_threshold = 1.2
-            #record = r.record(mic, duration = 5) #works nice   
+            r.adjust_for_ambient_noise(mic, duration=0.2)
             record = r.listen(mic)             
             audio = r.recognize_google(record).lower()
 
@@ -318,6 +314,8 @@ def send_email_res():
                     elif count == len(csv_reader):
                         speak("Person not found. Exiting")
                         DONE = True
+            if "cancel" in to or "nevermind" in to or 'never mind' in to:
+                DONE = True
         except:
             speak('Could not catch that, repeat')
             print("Alexa: " + "Could not catch that, repeat")
