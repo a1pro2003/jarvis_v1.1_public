@@ -47,12 +47,12 @@
     },
     {
         "tag" : "open_mask",
-        "patterns" : ["open the mask", "open mask", "open the helmet"],
+        "patterns" : ["open the mask", "open mask", "open the helmet", "/open to mask", "open to mosque", "open the mosque"],
         "responses" : [""]    
     },
     {
         "tag" : "close_mask",
-        "patterns" : ["close the mask", "close mask", "close the helmet"],
+        "patterns" : ["close the mask", "close mask", "close the helmet", "close to mask", "close to mosque", "close the mosque"],
         "responses" : [""]    
     }
 ]

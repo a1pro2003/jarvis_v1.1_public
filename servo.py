@@ -3,8 +3,8 @@ from time import sleep
 import speak
 
 GPIO.setmode(GPIO.BOARD)
-GPIO.setup(11,GPIO.OUT)
-servo1 = GPIO.PWM(11,50)
+GPIO.setup(7,GPIO.OUT)
+servo1 = GPIO.PWM(7,50)
 servo1.start(0)
 
 def open_mask():
