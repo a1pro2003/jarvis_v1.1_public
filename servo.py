@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from time import sleep
-import speak
+from speak import *
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(7,GPIO.OUT)

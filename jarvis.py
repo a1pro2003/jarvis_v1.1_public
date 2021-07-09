@@ -95,13 +95,16 @@ def listen_1(): #DONE
 def listen():
     try:
         with sr.Microphone() as mic:
-            r = sr.Recognizer()
-            r.adjust_for_ambient_noise(mic, duration=0.2)
-            record = r.listen(mic)             
-            audio = r.recognize_google(record).lower()
-
-            DONE = True
-            return audio.lower()
+            try:
+                r = sr.Recognizer()
+                r.adjust_for_ambient_noise(mic, duration=0.2)
+                record = r.listen(mic)             
+                audio = r.recognize_google(record).lower()
+                audio = audio.lower()
+                DONE = True
+                return audio
+            except:
+                pass
     except sr.UnknownValueError:
         pass
 
