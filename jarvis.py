@@ -117,6 +117,7 @@ def cleanup():
     speak(goodbye_responses[random.randint(0, len(goodbye_responses) - 1)])
     close_spotify()
     #tv_controls('notification power off')
+    GPIO.cleanup()
     sys.exit()
 
 ###############################################################
