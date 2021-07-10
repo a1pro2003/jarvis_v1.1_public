@@ -54,6 +54,16 @@
         "tag" : "close_mask",
         "patterns" : ["close the mask", "close mask", "close the helmet", "close to mask", "close to mosque", "close the mosque"],
         "responses" : [""]    
+    },
+    {
+        "tag" : "whos_daddy",
+        "patterns" : ["who is your daddy", "who's daddy", "who is your papi", "who's papi"],
+        "responses" : ["you are daddy", "you are my daddy", "you papi", "you daddy"]   
+    },
+    {
+        "tag" : "whos_worse",
+        "patterns" : ["who is the worse", "who sucks"],
+        "responses" : []  
     }
 ]
 }

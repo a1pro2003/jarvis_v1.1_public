@@ -352,7 +352,10 @@ def send_email_res():
             print("Alexa: " + "Message not delivered")
         DONE = True
 
-
+def whos_worse_res():
+    name = ["Diliana", "Adriana"]
+    statement = (random.randint(0, len(whos_worse_responses))).format(random.randint(0, len(name)))
+    speak(statement)
 #Music Playing Function
 
 #
@@ -378,6 +381,9 @@ def main():
         try:
             with sr.Microphone() as mic:
                 input = listen()
+            
+            if input is None:
+                continue
             #checks to see if music
             if (input.count(MUSIC) > 0):
                 print("Me: " + input)
@@ -428,6 +434,7 @@ mappings = {
     "send_email": send_email_res,
     "open_mask": open_mask,
     "close_mask": close_mask,
+    "whos_worse": whos_worse_res
 }
 # print(current_dir_path + modules_files_dir + '/intents.json')
 assistant = GenericAssistant(current_dir_path + modules_files_dir + '/intents.json', intent_methods=mappings)
