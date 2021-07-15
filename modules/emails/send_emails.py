@@ -9,9 +9,9 @@ def email_msg(subject=None, body=None, to=None):
         msg['to'] = to
         msg['from'] = 'DADDDYYYY'
 
-
-        user = 'jarvis.prototype.V.1.0@gmail.com'
-        password = 'rambjnqteladfllr'
+        #your email address
+        user = '(email address)'
+        password = '(password'
 
         server = smtplib.SMTP('smtp.gmail.com', 587)
         server.starttls()
@@ -26,5 +26,5 @@ def email_msg(subject=None, body=None, to=None):
 
 
 
-#email_msg(subject='PYTHON EMAIL', body='The python works brooo', to='adrianporteros24@gmail.com')
+
 
