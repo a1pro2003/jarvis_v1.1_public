@@ -277,7 +277,7 @@ def tv_controls(control):
         print('No command parsed')
 
 
-send_magic_packet('00:51:ED:DE:2B:7B', ip_address = '192.168.1.118')
+
 #Testing
 # while True:
 #     sleep(1.5)
