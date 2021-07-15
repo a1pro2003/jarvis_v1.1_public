@@ -1,1 +1,1 @@
-192.168.1.118,00:51:ed:de:2b:7b
+ip_address,mac_address
