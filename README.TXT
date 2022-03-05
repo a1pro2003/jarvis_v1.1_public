@@ -9,18 +9,18 @@
 
 
 #Install tenserflow/neuralintents
-1.sudo rm /usr/lib/python3/dist-packages/wrapt-1.10.11.egg-info
-2.pip3 install --upgrade tensorflow==1.14 --no-cache-dir
-3.CONF_SWAPSIZE=1024  #increase number
-4.sudo dphys-swapfile setup  #setup new file
-5.sudo dphys-swapfile swapon  #start newf file
-6.reboot
+  1.sudo rm /usr/lib/python3/dist-packages/wrapt-1.10.11.egg-info
+  2.pip3 install --upgrade tensorflow==1.14 --no-cache-dir
+  3.CONF_SWAPSIZE=1024  #increase number
+  4.sudo dphys-swapfile setup  #setup new file
+  5.sudo dphys-swapfile swapon  #start newf file
+  6.reboot
 
 
 
 #Incfrrease swap file
-1.sudo dphys-swapfile swapoff #turnswap off
-2.sudo nano /etc/dphys-swapfile  # edit swap file
+  1.sudo dphys-swapfile swapoff #turnswap off
+  2.sudo nano /etc/dphys-swapfile  # edit swap file
 
 #TV Wake-On-Lan
 To enable your TV to be powered on via IP command, go to Settings>Connection>Mobile TV On and switch on "Turn on via Wi-Fi."
